@@ -44,7 +44,7 @@ let RemoveFireBlockOnOk = (x,y) => {
 let ReduceSpread = (x,y) => {
     if(grid[x][y][1] === "FIRE"){
         grid[x][y][2] -= POWER;
-        if(grid[x][y][2] === 0 || grid[x][y][2] < 0){
+        if(grid[x][y][2] <= 0){
             grid[x][y][2] = 0;
             grid[x][y][1] = "OK";
         }
@@ -53,7 +53,7 @@ let ReduceSpread = (x,y) => {
 
 let DamageFromFire = (x,y) => {
     grid[x][y][0] -= FIREPOWER;
-    if(grid[x][y][0] === 0 || grid[x][y][0] < 0){
+    if(grid[x][y][0] <= 0){
         grid[x][y][0] = 0;
         grid[x][y][1] = "DESTROYED";
     }
